@@ -1,0 +1,170 @@
+#slide_sorter .content-container {
+  width: 858px;
+  height: 413px;
+  position: absolute;
+  left: 0;
+  top: 150px;
+  margin-left: 20px;
+}
+
+#slide_sorter #allBoxes{
+	height:295px;
+	width:870px;
+	position:absolute;
+	top:0px;
+	left:0;
+	display:block;
+}
+
+#slide_sorter #allBoxes .subBox{
+	display:block;
+	position:absolute;
+    -webkit-transition: height, width ease-out 0.5s;
+    transition: height, width, ease-out 0.5s;
+	background-position:center;
+	overflow:visible;
+}
+
+#slide_sorter #box1{
+	left:0;
+	top:0;
+	background-image:url(images/slide_01.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+
+#slide_sorter #box2{
+	left:50%;
+	top:0;
+	background-image:url(images/slide_02.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+
+#slide_sorter #box2 h2.responsive {
+
+  width: 6.25rem;
+  padding: 0.5rem;
+  font-size: 0.6rem;
+}
+
+#slide_sorter #box3{
+	left:0;
+	top: 65%;
+  	background-image:url(images/slide_03.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+
+#slide_sorter #box4{
+	left:50%;
+    top: 65%;
+	background-image:url(images/slide_04.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+
+.hotspot.shrinker {
+	height: 60px;
+	width: 60px;
+	position: absolute;
+	top: 149px;
+	left: 594px;
+	z-index: 20;
+}
+
+.twoThirdBox .hotspot.shrinker {
+	position: relative;
+	left: 500px;
+	top: 115px;
+	height: 23%;
+	width: 10%;
+	z-index:20;
+
+}
+
+/********************* Box Sizes *********************/
+
+#slide_sorter #allBoxes .quarterBox{
+  width: 60%;
+  height: 60%;
+  margin-left: -5%;
+ }
+
+#slide_sorter #allBoxes .thirdBox{
+	height:30%;
+	width:30%;
+	margin-right:30px;
+	left:66.7%;
+	display:inline;
+	background-position:right;
+	margin-top:20px;
+}
+
+#slide_sorter #allBoxes .twoThirdBox{
+	height: 120%;
+	width: 75%;
+	left:0;
+	top:0;
+	margin-left: 0px;
+	background-position:left;
+	z-index:10;
+
+}
+
+#slide_sorter #box1.twoThirdBox{
+	background-image:url(images/slide_01.png);
+}
+
+#slide_sorter #box2.twoThirdBox{
+	background-image:url(images/slide_02.png);
+}
+
+#slide_sorter #box3.twoThirdBox{
+	background-image:url(images/slide_03.png);
+}
+
+#slide_sorter #box4.twoThirdBox{
+	background-image:url(images/slide_04.png);
+}
+
+
+
+/********************* Small Box Positions *********************/
+#slide_sorter .pos1{
+	top:0 !important;
+}
+
+#slide_sorter .pos2{
+	top:33.3% !important;
+}
+
+#slide_sorter .pos3{
+	top:66.7% !important;
+}
+
+/****************************  Reference styles- Delete upon launch  ****************************/
+
+#redArea, .redArea{
+	background-color:rgba(255,0,0,0.2) !important;
+}
+
+#blueArea, .blueArea{
+	background-color:rgba(0,0,255,0.2) !important;
+}
+
+#greenArea, .greenArea{
+	background-color:rgba(0,255,79,0.2) !important;
+}
+
+#orangeArea, .orangeArea{
+	background-color:rgba(255,165,0,0.2) !important;
+}
+
+#purpleArea, .purpleArea{
+	background-color:rgba(85,26,139,0.2) !important;
+}
+
+#redBorder, .redBorder{
+	border:red solid 1px !important;
+}
