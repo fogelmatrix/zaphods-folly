@@ -1,20 +1,21 @@
 <!doctype html>
-<html>
-<head>
+<html><head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,300,500,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/square_styles.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.sidr.min.js"></script>
 <script src="lib/angular.min.js"></script>
 <script src="js/square_controllers.js"></script>
-<script src="js/square2.js"></script>
+
+    
+<script type="text/javascript">
+</script>
 
 <!-- Start of Async HubSpot Analytics Code -->
   <script type="text/javascript">
@@ -81,8 +82,8 @@
         </div><!-- END ROW -->            
     </div><!-- END CONTAINER -->
 </section>
-
-<section id="resources" ng-controller="BookListController">
+<div  ng-controller="BookListController">
+<section id="resources">
     <div class="container-fluid">
         <div class="row">
         	<h1>Free Resources</h1>
@@ -102,11 +103,85 @@
                 </div>
             </div>
 
-        </div><!-- END ROW -->            
+        </div><!-- END ROW -->    
+    </div><!-- END CONTAINER -->
+</section>
+
+<section id="new_books">
+    <div class="container-fluid">
+        <div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+                <h2>Enter A New Book Title To The Library</h2>
+            </div>
+        </div>
+        <form id="book_form" class="" method="post" ng-submit="processForm()" action="data/post.php">
+
+            <div class="row">
+                <div class="col-md-2 col-sm-3 hidden-xs"></div>
+                <div class="col-md-8 col-xs-12 col-sm-6">
+                    <fieldset id="book_form_area"  ng-submit="submit()">
+                            <label for="book_title" class="book_label">Title</label><br>
+                            <input type="text" id="book_title" required class="book_input" name="book_title" placeholder="Title">
+                            <br>
+                            <label for="book_author" class="book_label">Author</label><br>
+                            <input type="text" id="book_author" required class="book_input" name="book_author" placeholder="Author">
+                            <br>	
+                            <label for="book_description" class="book_label">Description</label><br>
+                            <input type="text" id="book_description" required class="book_input" name="book_description"  placeholder="Please enter a brief description">
+                            <br>
+                        
+                    </fieldset>
+                </div>
+                <div class="col-md-2 col-sm-3 hidden-xs"></div>
+            </div><!-- END ROW -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label class="book_label">Please select a thumbnail image.</label>
+                </div>
+            </div>
+
+            <div class="row" id="cover_list">
+
+                <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="item in booklist | filter: query | limitTo:numLimit">
+                    <fieldset id="book_covers">
+                        <label class="cover_label">
+                        <br>
+                        <img src="{{item.cover}}"><br>
+                        <input type="radio" class="book_input book_radio" value="{{item.cover}}" required  name="book_cover">
+                    <br></label>
+                    </fieldset>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <button class="book_input" name="submit" >Submit</button>
+                </div>
+            </div>
+
+        </form>
 
     </div><!-- END CONTAINER -->
     
 </section>
+</div>
+<section id="map_area" class="blue_top">
+    <div class="container-fluid">
+        <div class="row">
+        	<h2>Our Locations</h2>
+            <h3></h3>
+        </div><!-- END ROW -->            
+        <div class="row" id="map_row">
+        	<div class="col-md-2 hidden-sm hidden-xs"></div>
+        	<div class="col-md-8 col-xs-12 col-sm-12">
+            	<div id="map">
+                </div>
+            </div>
+        	<div class="col-md-2 hidden-sm hidden-xs"></div>
+        </div><!-- END ROW -->    
+    </div><!-- END CONTAINER -->
+</section>
+
 <footer>
     <div class="container">
         <div class="row footer_menu">
@@ -144,13 +219,19 @@
         </div>
     </div>  
 </footer>
-<script>
+
+<script src="js/jquery.sidr.min.js"></script>
+
+<script type="text/javascript">
     $('#responsive-menu-button').sidr({
       name: 'sidr-main',
       source: '#navigation'
     });
 </script>
 
+<!-- MAPS -->
+<script src="js/square2.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgzr5kpBdPj7twrD7BsNQOgk7WoV9PwXU&callback=initMap"></script>
 
 </body>
 </html>

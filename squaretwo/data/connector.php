@@ -8,12 +8,13 @@ $username = "square2";
 $password = "KMMRUh8t";
 $conn = new mysqli($hostname, $username, $password, $database);
 
-$result = $conn->query("SELECT title, author, cover, description, link FROM books");
+$result = $conn->query("SELECT id, title, author, cover, description, link FROM books");
 
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "") {$outp .= ",";}
     $outp .= '{"title":"'  . $rs["title"] . '",';
+    $outp .= '"id":"'  . $rs["id"] . '",';
     $outp .= '"cover":"'  . $rs["cover"] . '",';
     $outp .= '"author":"'  . $rs["author"] . '",';
     $outp .= '"description":"'  . $rs["description"] . '",';
@@ -25,4 +26,6 @@ $outp ='{"books":['.$outp.']}';
 $conn->close();
 
 echo($outp);
+
 ?>
+
